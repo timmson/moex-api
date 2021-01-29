@@ -1,7 +1,8 @@
-const arrayCombine = require("./array_combine");
 const request = require("request");
-const _ = require("lodash");
-let debug = require("debug")("moex.api");
+const debug = require("debug")("moex.api");
+
+const arrayCombine = require("./lib/array_combine");
+const _ = require("./lib/lodash");
 
 function required(parameter = "") {
 	throw `Missing ${parameter} parameter`;

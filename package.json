@@ -4,7 +4,7 @@
   "description": "MOEX API ISS",
   "main": "micex.js",
   "scripts": {
-    "lint": "npx eslint api.js array_combine.js ./test --fix",
+    "lint": "npx eslint api.js lib/array_combine.js ./test --fix",
     "test": "jest",
     "coverage": "jest --collectCoverage"
   },

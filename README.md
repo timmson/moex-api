@@ -8,7 +8,7 @@ MOEX ISS API
 Доступ к данным Московской Бирже через ISS API.
 
 ## Installation
-`npm install micex.api`
+`npm install moex-api`
 
 ```js
 const MoexAPI = require("moex-api");
@@ -47,10 +47,9 @@ part of output
 ## More examples
 
 ```js
-moexApi.securityMarketdata("MICEXINDEXCF"); //MICEX INDEX
+moexApi.securityMarketdata("IMOEX"); //MICEX INDEX
 moexApi.securityMarketdata("RTSI"); //RTS INDEX
 moexApi.securityMarketdata("SBER"; //SBERBANK SHARES
-moexApi.securityMarketdata("RIZ5"); //FUTURES RTS 12.15
 ```
 
 ## Available methods
