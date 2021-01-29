@@ -1,5 +1,8 @@
 # Moex API / API Московской Бирже
 
+[![version](https://img.shields.io/npm/v/moex-api.svg)](https://www.npmjs.com/package/moex-api)
+[![license](https://img.shields.io/npm/l/moex-api.svg)](https://www.npmjs.com/package/moex-api)
+[![codecov](https://codecov.io/gh/timmson/moex-api/branch/master/graph/badge.svg)](https://codecov.io/gh/timmson/moex-api)
 
 MOEX ISS API  
 [http://moex.com/iss/reference/](http://moex.com/iss/reference/)
