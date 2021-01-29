@@ -52,9 +52,6 @@ describe("Lodash", () => {
             "d": {dir: "right", code: 100}
         });
 
-        expect(_.indexBy(keyData, function (object) {
-            return this.fromCharCode(object.code);
-        }, String)).toEqual({"a": {dir: "left", code: 97}, "d": {dir: "right", code: 100}})
     })
 
     /**
