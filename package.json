@@ -1,10 +1,10 @@
 {
   "name": "moex-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MOEX API ISS",
-  "main": "micex.js",
+  "main": "api.js",
   "scripts": {
-    "lint": "npx eslint api.js lib/array_combine.js ./test --fix",
+    "lint": "npx eslint api.js ./lib ./test --fix",
     "test": "jest",
     "coverage": "jest --collectCoverage"
   },
