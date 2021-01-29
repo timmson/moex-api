@@ -21,7 +21,7 @@ const moexApi = new MoexAPI();
 Get current USD/RUB value.
 
 ```js
-moexApi.securityMarketdata("USD000UTSTOM").then((security) => {
+moexApi.securityMarketData("USD000UTSTOM").then((security) => {
         console.log(security.node.last); // e.g. 64.04
         console.log(security);
     });
@@ -47,9 +47,9 @@ part of output
 ## More examples
 
 ```js
-moexApi.securityMarketdata("IMOEX"); //MICEX INDEX
-moexApi.securityMarketdata("RTSI"); //RTS INDEX
-moexApi.securityMarketdata("SBER"; //SBERBANK SHARES
+moexApi.securityMarketData("IMOEX"); //MICEX INDEX
+moexApi.securityMarketData("RTSI"); //RTS INDEX
+moexApi.securityMarketData("SBER"; //SBERBANK SHARES
 ```
 
 ## Available methods
@@ -61,7 +61,7 @@ moexApi.markets(engine);
 moexApi.boards(engine, market);
 moexApi.securitiesDefinitions(query);
 moexApi.securityDefinition(security);
-moexApi.securitiesMarketData(engine, market, query);
+moexApi.securityMarketData(engine, market, query);
 moexApi.securitiesDataRaw(engine, market, query);
 moexApi.getSecurityInfo(security);
 moexApi.securityMarketData(security);
