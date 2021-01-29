@@ -1,0 +1,28 @@
+name: Node CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Lint and coverage
+      run: |
+        npm i
+        npm run lint
+        npm run coverage && npx codecov
+      env:
+        CI: true
+        CODECOV_TOKEN: a834288a-6fb1-4142-b6a4-f60782524235

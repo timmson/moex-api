@@ -1,27 +1,30 @@
-# Micex API / ММВБ API [![Build Status](https://travis-ci.org/sklyukin/micex.api.svg?branch=master)](https://travis-ci.org/sklyukin/micex.api)
+# Moex API / API Московской Бирже
 
 
-Micex (MOEX) ISS API  
+MOEX ISS API  
 [http://moex.com/iss/reference/](http://moex.com/iss/reference/)
 
 #### ru
-Доступ к данным ММВБ через ISS API.
+Доступ к данным Московской Бирже через ISS API.
 
 ## Installation
 `npm install micex.api`
+
 ```js
-  Micex = require('micex.api');
+const MoexAPI = require("moex-api");
+
+const moexApi = new MoexAPI();
 ```
 
 ## Request example
-Get current USD/RUB value.  
+
+Get current USD/RUB value.
 
 ```js
-Micex.securityMarketdata('USD000UTSTOM')
-  .then(function (security){
-     console.log(security.node.last); // e.g. 64.04
-     console.log(security);
-  });
+moexApi.securityMarketdata("USD000UTSTOM").then((security) => {
+        console.log(security.node.last); // e.g. 64.04
+        console.log(security);
+    });
 ```
 
 part of output
@@ -42,26 +45,30 @@ part of output
 ```
 
 ## More examples
+
 ```js
-Micex.securityMarketdata('MICEXINDEXCF'); //MICEX INDEX
-Micex.securityMarketdata('RTSI'); //RTS INDEX
-Micex.securityMarketdata('SBER'; //SBERBANK SHARES
-Micex.securityMarketdata('RIZ5'); //FUTURES RTS 12.15
+moexApi.securityMarketdata("MICEXINDEXCF"); //MICEX INDEX
+moexApi.securityMarketdata("RTSI"); //RTS INDEX
+moexApi.securityMarketdata("SBER"; //SBERBANK SHARES
+moexApi.securityMarketdata("RIZ5"); //FUTURES RTS 12.15
 ```
 
 ## Available methods
+
 ```js
-Micex.index;
-Micex.engines;
-Micex.markets(engine);
-Micex.boards(engine, market);
-Micex.securitiesDefinitions(query);
-Micex.securityDefinition(security);
-Micex.securitiesMarketData(engine, market, query);
-Micex.securitiesDataRaw(engine, market, query);
-Micex.getSecurityInfo(security);
-Micex.securityMarketData(security);
+moexApi.index;
+moexApi.engines;
+moexApi.markets(engine);
+moexApi.boards(engine, market);
+moexApi.securitiesDefinitions(query);
+moexApi.securityDefinition(security);
+moexApi.securitiesMarketData(engine, market, query);
+moexApi.securitiesDataRaw(engine, market, query);
+moexApi.getSecurityInfo(security);
+moexApi.securityMarketData(security);
 ```
+
 ## More info
-Micex class - [lib/mices.js](lib/micex.js)  
-Usage examples / tests - [test/micex.spec.js](test/micex.spec.js)
+
+Api class - [api.js](api.js)  
+Usage examples / tests - [test/test-api.js](test/test-api.js)

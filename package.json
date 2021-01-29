@@ -1,33 +1,29 @@
 {
-  "name": "micex.api",
-  "version": "0.2.2",
-  "description": "MICEX API ISS",
-  "main": "lib/micex.js",
+  "name": "moex-api",
+  "version": "1.0.0",
+  "description": "MOEX API ISS",
+  "main": "micex.js",
   "scripts": {
-    "pretest": "jshint .",
-    "test": "mocha",
-    "compile": "babel src --out-dir lib",
-    "prepublish": "npm run compile"
+    "lint": "npx eslint api.js array_combine.js ./test --fix",
+    "test": "jest",
+    "coverage": "jest --collectCoverage"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sklyukin/micex.api.git"
+    "url": "git+https://github.com/timmson/moex-api.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sklyukin/micex.api/issues"
+    "url": "https://github.com/timmson/moex-api/issues"
   },
-  "homepage": "https://github.com/sklyukin/micex.api#readme",
+  "homepage": "https://github.com/timmson/moex-api#readme",
   "dependencies": {
-    "debug": "^2.2.0",
+    "debug": "^4.3.1",
     "lodash": "^3.10.1",
-    "request": "^2.60.0"
+    "request": "^2.88.2"
   },
   "devDependencies": {
-    "babel": "^5.8.21",
-    "chai": "^3.2.0",
-    "jshint": "^2.8.0",
-    "mocha": "^2.2.5"
+    "jest": "26.6.3"
   }
 }

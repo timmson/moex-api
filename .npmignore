@@ -1,21 +1,17 @@
+# Idea
+.idea/
 
-*.csv
-*.dat
-*.iml
-*.log
-*.out
-*.pid
-*.seed
-*.sublime-*
-*.swo
-*.swp
-*.tgz
-*.xml
-.DS_Store
-.idea
-.project
-.strong-pm
-coverage
-node_modules
-npm-debug.log
-src/
+# Node modules
+node_modules/
+
+# Test & Coverage
+coverage/
+test/
+
+# Git
+.git
+.gitignore
+.github/
+
+# Other
+.eslintrc.js
