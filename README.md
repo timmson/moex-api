@@ -50,9 +50,10 @@ part of output
 ## More examples
 
 ```js
-moexApi.securityMarketData("IMOEX"); //MICEX INDEX
+moexApi.securityMarketData("IMOEX"); //MOEX INDEX
 moexApi.securityMarketData("RTSI"); //RTS INDEX
-moexApi.securityMarketData("SBER"; //SBERBANK SHARES
+moexApi.securityMarketData("SBER"); //SBERBANK SHARES
+moexApi.securityMarketData("VTBA", "USD"); //VTB WIDE MARKET IN USD
 ```
 
 ## Available methods

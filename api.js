@@ -13,19 +13,20 @@ const SECURITY_INFO = {};
 const SECURITIES_ORDERING_COLUMN = "VALTODAY";
 
 class MoexAPI {
+
 	/*
-     * difference with securityMarketdataExplicit - this method works without
+     * difference with securityMarketDataExplicit - this method works without
      * engine / market parameters (it will use first pair from security
-     * definition). It makes additional request to MICEX API for
+     * definition). It makes additional request to MOEX API for
      * first time for specific security, than cache this engine / market
      * for this security.
      */
-	securityMarketData(security = required("security")) {
+	securityMarketData(security = required("security"), currency) {
 		return this.getSecurityInfo(security)
 			.then(({
 				engine, market
 			}) => {
-				return this.securityMarketDataExplicit(engine, market, security);
+				return this.securityMarketDataExplicit(engine, market, security, currency);
 			});
 	}
 
@@ -49,19 +50,22 @@ class MoexAPI {
 	}
 
 	securityMarketDataExplicit(engine = required("engine"),
-		market = required("market"), security = required("security")) {
+		market = required("market"), security = required("security"), currency) {
 		return this.securityDataRawExplicit(engine, market, security)
 			.then((response) => {
 				let rows = MoexAPI._responseToSecurities(response, {
 					engine, market
 				});
-				rows = rows.filter(row => row.node.last);
+				rows = rows.filter(row => row.node.last && this.filterByCurrency(row, currency));
 				rows = _.sortByOrder(rows, SECURITIES_ORDERING_COLUMN, "desc");
-				if (!rows.length) return null;
-				return rows[0];
+				return rows.length ? rows[0] : null;
 			});
 	}
 
+
+	filterByCurrency(security, currency) {
+		return currency !== undefined ? security.securityInfo.CURRENCYID === currency : true;
+	}
 
 	securityDataRawExplicit(engine = required("engine"),
 		market = required("market"), security = required("security")) {
