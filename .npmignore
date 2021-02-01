@@ -5,14 +5,12 @@
 node_modules/
 
 # Test & Coverage
+.eslintrc.js
 coverage/
 jest.config.js
 test/
 
 # Git
-.git
+.git/
 .gitignore
 .github/
-
-# Other
-.eslintrc.js

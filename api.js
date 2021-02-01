@@ -1,4 +1,4 @@
-const request = require("request");
+const fetch = require("node-fetch");
 const debug = require("debug")("moex.api");
 
 const _ = require("./lib/lodash");
@@ -217,27 +217,31 @@ class MoexAPI {
 
 	static _request(method, query = {}) {
 		let BASE = method ? API_BASE + "/" : API_BASE;
-		return new Promise((resolve, reject) => {
-			request(`${BASE}${method}.json`, {
-				qs: query
-			}, (error, response, body) => {
-				if (!error && response.statusCode === 200) {
-					let json;
-					try {
-						json = JSON.parse(body);
-					} catch (e) {
-						debug("Unable to parse body");
-						debug(body);
-						return reject(e);
-					}
-					resolve(json);
-				} else {
-					error = error || (response.statusCode + " " + response.statusMessage);
-					reject(error);
+		return new Promise(async (resolve, reject) => {
+			const url = new URL(`${BASE}${method}.json`);
+			Object.keys(query).forEach(key => url.searchParams.append(key, query[key]));
+			let result = {};
+			try {
+				result = await fetch(url);
+				if (!result.ok) {
+					const textError = `Request was failed: ${result.status} (${result.statusText})`;
+					MoexAPI._debugAndReject(url, result, reject, new Error(textError), textError);
 				}
-			});
+				const json = await result.json();
+				resolve(json);
+			} catch (error) {
+				MoexAPI._debugAndReject(url, result, reject, error, "Unable to get body");
+			}
 		});
 	}
+
+	static _debugAndReject(url, result, reject, error, errorText) {
+		debug(errorText);
+		debug(url);
+		debug(result);
+		reject(error);
+	}
+
 }
 
 module.exports = MoexAPI;
