@@ -83,4 +83,16 @@ describe("Lodash", () => {
 
 		expect(_.mapValues(users, "age")).toEqual({fred: 40, pebbles: 1});
 	});
+
+	/**
+	 * Array combine
+	 */
+
+	test("combine", () => {
+		expect(_.combine([1, 2])).toBeFalsy();
+
+		expect(_.combine([1, 2], [3])).toBeFalsy();
+
+		expect(_.combine([1, 2], [3, 4])).toEqual({"1": 3, "2": 4});
+	});
 });

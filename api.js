@@ -1,7 +1,6 @@
 const request = require("request");
 const debug = require("debug")("moex.api");
 
-const arrayCombine = require("./lib/array_combine");
 const _ = require("./lib/lodash");
 
 function required(parameter = "") {
@@ -14,7 +13,7 @@ const SECURITIES_ORDERING_COLUMN = "VALTODAY";
 
 class MoexAPI {
 
-	/*
+	/**
      * difference with securityMarketDataExplicit - this method works without
      * engine / market parameters (it will use first pair from security
      * definition). It makes additional request to MOEX API for
@@ -213,7 +212,7 @@ class MoexAPI {
 
 	//combine columns and data to array of objects
 	static _responseBlockToArray(block) {
-		return block.data.map((data) => arrayCombine(block.columns, data));
+		return block.data.map((data) => _.combine(block.columns, data));
 	}
 
 	static _request(method, query = {}) {
