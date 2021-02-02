@@ -4,8 +4,9 @@
 [![license](https://img.shields.io/npm/l/moex-api.svg)](https://www.npmjs.com/package/moex-api)
 [![codecov](https://codecov.io/gh/timmson/moex-api/branch/master/graph/badge.svg)](https://codecov.io/gh/timmson/moex-api)
 
-MOEX ISS API  
-[http://moex.com/iss/reference/](http://moex.com/iss/reference/)
+MOEX ISS API - [http://moex.com/iss/reference/](http://moex.com/iss/reference/).
+
+Forked from [stan-ros/micex.api](https://github.com/stan-ros/micex.api).
 
 #### ru
 Доступ к данным Московской Бирже через ISS API.

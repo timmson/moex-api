@@ -1,7 +1,7 @@
 {
   "name": "moex-api",
   "version": "1.0.4",
-  "description": "MOEX API ISS",
+  "description": "MOEX API ISS for JS",
   "main": "api.js",
   "scripts": {
     "lint": "npx eslint api.js ./lib ./test --fix",
