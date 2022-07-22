@@ -62,14 +62,13 @@ describe("MoexAPI.", () => {
 		});
 
 		test("Pagination should works for securities method", function () {
-			return moexApi.securitiesDefinitions().then((firstPageSecurities) => {
-				return moexApi.securitiesDefinitions({start: 100}).then((securities) => {
+			return moexApi.securitiesDefinitions({sort_column: "secid", sort_order: "asc"}).then((firstPageSecurities) => {
+				return moexApi.securitiesDefinitions({start: 100, sort_column: "secid", sort_order: "asc"}).then((securities) => {
 					expect(securities.length).toBeGreaterThanOrEqual(50);
-					expect(securities[0].id).not.toEqual(firstPageSecurities[0].id);
+					expect(securities[0].secid).not.toEqual(firstPageSecurities[0].secid);
 				});
 			});
 		});
-
 
 		test("Should give specific security -  USD000UTSTOM ", () => {
 			return moexApi.securityDefinition("USD000UTSTOM").then((security) => {
