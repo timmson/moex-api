@@ -1,4 +1,4 @@
-# Moex API / API Московской Бирже
+# Moex API / API Московской Биржи
 
 [![version](https://img.shields.io/npm/v/moex-api.svg)](https://www.npmjs.com/package/moex-api)
 [![license](https://img.shields.io/npm/l/moex-api.svg)](https://www.npmjs.com/package/moex-api)
@@ -74,5 +74,5 @@ moexApi.securityMarketData(security);
 
 ## More info
 
-Api class - [api.js](api.js)  
+API class - [api.js](api.js)  
 Usage examples / tests - [test/test-api.js](test/test-api.js)
