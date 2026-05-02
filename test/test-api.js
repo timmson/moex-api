@@ -1,4 +1,18 @@
 const MoexAPI = require("../api");
+const { setupMocks, nock } = require("./_mocks");
+
+beforeAll(() => {
+	setupMocks();
+});
+
+afterAll(() => {
+	nock.cleanAll();
+	nock.enableNetConnect();
+});
+
+afterEach(() => {
+	setupMocks();
+});
 
 describe("MoexAPI.", () => {
 
